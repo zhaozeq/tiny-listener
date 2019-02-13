@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Destroy</title>
+    </head>
+    <body>
+        <!-- 1. Write some markup -->
+        <button class="target">Click me</button>
+        <button class="target" onclick="destroy()">Click me</button>
+        <div style="height:1200px;">asas</div>
+        <!-- 2. Include library -->
+        <script src="../dist/good-listener.js"></script>
+
+        <!-- 3. Remove listener by calling the destroy function -->
+        <script>
+            var listener = listen(".target", "click", e => {
+                console.info(e)
+            })
+            const fn = throttle(e => console.log(e, "123"), 300)
+            const scroll = listen(document.body, "mousewheel", fn)
+
+            function throttle(fn, threshhold = 250, scope) {
+                let last
+                let deferTimer
+                return () => {
+                    const context = scope || this
+                    const now = +new Date()
+                    const args = arguments
+                    if (last && now < last + threshhold) {
+                        clearTimeout(deferTimer)
+                        deferTimer = setTimeout(() => {
+                            last = now
+                            fn.apply(context, args)
+                        }, threshhold)
+                    } else {
+                        last = now
+                        fn.apply(context, args)
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

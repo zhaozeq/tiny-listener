@@ -1,0 +1,35 @@
+{
+  "name": "tiny-listener",
+  "version": "1.0.0",
+  "description": "简便的添加和移除监听",
+  "main": "src/listen.js",
+  "scripts": {
+    "build:clean": "rimraf dist",
+    "build:dist": "yarn rollup --config rollup.config.js",
+    "build": "yarn build:clean && yarn build:dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaozeq/tiny-listener.git"
+  },
+  "keywords": [
+    "listener",
+    "tiny-listener"
+  ],
+  "author": "zhaozeqing",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhaozeq/tiny-listener/issues"
+  },
+  "homepage": "https://github.com/zhaozeq/tiny-listener#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.0",
+    "babel-core": "^6.26.3",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.68.0",
+    "rollup-plugin-babel": "^4.1.0",
+    "rollup-plugin-replace": "^2.1.0",
+    "rollup-plugin-uglify": "^6.0.0"
+  }
+}
