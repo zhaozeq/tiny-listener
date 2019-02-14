@@ -4,11 +4,11 @@
  * @param {Object} value
  * @return {Boolean}
  */
-exports.node = function(value) {
-    return value !== undefined
-        && value instanceof HTMLElement
-        && value.nodeType === 1;
-};
+export const node = function(value) {
+  return (
+    value !== undefined && value instanceof HTMLElement && value.nodeType === 1
+  )
+}
 
 /**
  * Check if argument is a list of HTML elements.
@@ -16,14 +16,16 @@ exports.node = function(value) {
  * @param {Object} value
  * @return {Boolean}
  */
-exports.nodeList = function(value) {
-    var type = Object.prototype.toString.call(value);
+export const nodeList = function(value) {
+  var type = Object.prototype.toString.call(value)
 
-    return value !== undefined
-        && (type === '[object NodeList]' || type === '[object HTMLCollection]')
-        && ('length' in value)
-        && (value.length === 0 || exports.node(value[0]));
-};
+  return (
+    value !== undefined &&
+    (type === "[object NodeList]" || type === "[object HTMLCollection]") &&
+    "length" in value &&
+    (value.length === 0 || exports.node(value[0]))
+  )
+}
 
 /**
  * Check if argument is a SVG element.
@@ -31,10 +33,9 @@ exports.nodeList = function(value) {
  * @param {Object} value
  * @return {Boolean}
  */
-exports.svg = function(value) {
-    return value !== undefined
-        && value instanceof SVGElement;
-};
+export const svg = function(value) {
+  return value !== undefined && value instanceof SVGElement
+}
 
 /**
  * Check if argument is a string.
@@ -42,10 +43,9 @@ exports.svg = function(value) {
  * @param {Object} value
  * @return {Boolean}
  */
-exports.string = function(value) {
-    return typeof value === 'string'
-        || value instanceof String;
-};
+export const string = function(value) {
+  return typeof value === "string" || value instanceof String
+}
 
 /**
  * Check if argument is a function.
@@ -53,8 +53,8 @@ exports.string = function(value) {
  * @param {Object} value
  * @return {Boolean}
  */
-exports.fn = function(value) {
-    var type = Object.prototype.toString.call(value);
+export const fn = function(value) {
+  var type = Object.prototype.toString.call(value)
 
-    return type === '[object Function]';
-};
+  return type === "[object Function]"
+}

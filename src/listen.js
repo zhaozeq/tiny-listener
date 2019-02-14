@@ -1,4 +1,4 @@
-var is = require("./is")
+import * as is from "./is"
 
 /**
  * 对节点添加监听事件
@@ -27,7 +27,7 @@ function listen(target, type, callback) {
   } else if (is.nodeList(target)) {
     return listenNodeList(target, type, callback)
   } else if (is.string(target)) {
-    var dom = document.querySelector(target)
+    const dom = document.querySelector(target)
 
     if (dom) {
       return listenNode(dom, type, callback)
