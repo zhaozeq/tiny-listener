@@ -1,7 +1,5 @@
 # tiny-listener
 
-[![Build Status](http://img.shields.io/travis/zenorocha/good-listener/master.svg?style=flat)](https://travis-ci.org/zenorocha/good-listener)
-
 > A more versatile way of adding & removing event listeners.
 
 ## Install
@@ -9,36 +7,34 @@
 You can get it on npm.
 
 ```
-npm install good-listener --save
+npm install tiny-listen --save
 ```
-
-Or bower, too.
-
-```
-bower install good-listener --save
-```
-
-If you're not into package management, just [download a ZIP](https://github.com/zenorocha/good-listener/archive/master.zip) file.
 
 ## Setup
 
 ###### Node (Browserify)
 
 ```js
-var listen = require("good-listener")
+var listen = require("tiny-listen")
 ```
 
 ###### Browser (Standalone)
 
 ```html
-<script src="dist/good-listener.js"></script>
+<script src="dist/tiny-listen.js"></script>
+```
+
+###### 新增 ++ (throttle, debounce)函数
+
+```js
+import { listen, throttle, debounce } from "tiny-listen"
+
+const listener = listen(this.scroller, "mousewheel", throttle(this.scroll, 300))
 ```
 
 ## Usage
 
 ### Add an event listener
-
-By passing a string selector [(see full demo)](https://github.com/zenorocha/good-listener/blob/master/demo/selector.html).
 
 ```js
 listen(".btn", "click", function(e) {
@@ -46,7 +42,7 @@ listen(".btn", "click", function(e) {
 })
 ```
 
-Or by passing a HTML element [(see full demo)](https://github.com/zenorocha/good-listener/blob/master/demo/node.html).
+Or by passing a HTML element
 
 ```js
 var logo = document.getElementById("logo")
@@ -56,7 +52,7 @@ listen(logo, "click", function(e) {
 })
 ```
 
-Or by passing a list of HTML elements [(see full demo)](https://github.com/zenorocha/good-listener/blob/master/demo/nodelist.html).
+Or by passing a list of HTML elements
 
 ```js
 var anchors = document.querySelectorAll("a")
@@ -68,7 +64,7 @@ listen(anchors, "click", function(e) {
 
 ### Remove an event listener
 
-By calling the `destroy` function that returned from previous operation [(see full demo)](https://github.com/zenorocha/good-listener/blob/master/demo/destroy.html).
+By calling the `destroy` function that returned from previous operation.
 
 ```js
 var listener = listen(".btn", "click", function(e) {
@@ -85,5 +81,3 @@ listener.destroy()
 |                                                 Latest ✔                                                  |                                               Latest ✔                                                |                                                  Latest ✔                                                   |                                                       9+ ✔                                                       |                                                Latest ✔                                                 |                                                 Latest ✔                                                  |
 
 ## License
-
-[MIT License](http://zenorocha.mit-license.org/) © Zhaozeqing

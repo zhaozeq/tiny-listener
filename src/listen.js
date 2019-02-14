@@ -10,7 +10,7 @@ import { throttle, debounce } from "./util"
  * @return {Object} 返回监听事件销毁方法 destory()
  */
 
-export function listen(target, type, callback) {
+function listen(target, type, callback) {
   if (!target && !type && !callback) {
     throw new Error("Missing required arguments")
   }
@@ -80,4 +80,5 @@ function listenNodeList(nodeList, type, callback) {
   }
 }
 
-module.exports = { default: listen, throttle, debounce }
+export { listen, throttle, debounce }
+export default { listen }
