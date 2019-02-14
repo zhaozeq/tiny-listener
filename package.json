@@ -1,6 +1,6 @@
 {
   "name": "tiny-listen",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "简便的添加和移除监听",
   "main": "dist/tiny-listen.cjs.js",
   "module": "dist/tiny-listen.esm.js",
@@ -32,8 +32,6 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
     "babel-core": "^6.26.3",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-latest": "^6.24.1",
     "rimraf": "^2.6.2",
     "rollup": "^0.68.0",
     "rollup-plugin-babel": "^4.3.2",
