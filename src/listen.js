@@ -1,4 +1,5 @@
 import * as is from "./is"
+import { throttle, debounce } from "./util"
 
 /**
  * 对节点添加监听事件
@@ -9,7 +10,7 @@ import * as is from "./is"
  * @return {Object} 返回监听事件销毁方法 destory()
  */
 
-function listen(target, type, callback) {
+export function listen(target, type, callback) {
   if (!target && !type && !callback) {
     throw new Error("Missing required arguments")
   }
@@ -79,4 +80,4 @@ function listenNodeList(nodeList, type, callback) {
   }
 }
 
-module.exports = listen
+module.exports = { default: listen, throttle, debounce }
