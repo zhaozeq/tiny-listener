@@ -1,7 +1,7 @@
 import babel from "rollup-plugin-babel"
 import replace from "rollup-plugin-replace"
 import { uglify } from "rollup-plugin-uglify"
-import pkg from "./package.json"
+// import pkg from "./package.json"
 
 const input = "src/listen.js"
 
@@ -28,7 +28,7 @@ export default [
   {
     input,
     output: {
-      file: "dist/tiny-listener.js",
+      file: "dist/tiny-listen.js",
       format: "umd",
       name: "warning"
     },
@@ -41,7 +41,7 @@ export default [
   {
     input,
     output: {
-      file: "dist/tiny-listener.min.js",
+      file: "dist/tiny-listen.min.js",
       format: "umd",
       name: "warning"
     },
