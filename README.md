@@ -28,7 +28,17 @@ var listen = require("tiny-listen")
 
 ```js
 import listen, { throttle, debounce } from "tiny-listen"
-
+/**
+ * throttle, debounce 函数入参
+ *
+ * @param {function} func
+ * @param {*} wait
+ * @param {object} options
+ *    - leading:Boolean 开始时调用
+ *    - trailing:Boolean 结束时调用
+ *    - maxWait:Number 最大等待时间
+ * @returns
+ */
 const listener = listen(this.scroller, "mousewheel", throttle(this.scroll, 300))
 ```
 
