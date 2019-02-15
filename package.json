@@ -1,6 +1,6 @@
 {
   "name": "tiny-listen",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "简便的添加和移除监听",
   "main": "dist/tiny-listen.cjs.js",
   "module": "dist/tiny-listen.esm.js",

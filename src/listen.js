@@ -1,4 +1,4 @@
-import * as is from "./is"
+import { isNode, isNodeList, isFn, isString } from "./is"
 import { throttle, debounce } from "./util"
 
 /**
@@ -15,19 +15,19 @@ function listen(target, type, callback) {
     throw new Error("Missing required arguments")
   }
 
-  if (!is.string(type)) {
+  if (!isString(type)) {
     throw new TypeError("Second argument must be a String")
   }
 
-  if (!is.fn(callback)) {
+  if (!isFn(callback)) {
     throw new TypeError("Third argument must be a Function")
   }
 
-  if (is.node(target)) {
+  if (isNode(target)) {
     return listenNode(target, type, callback)
-  } else if (is.nodeList(target)) {
+  } else if (isNodeList(target)) {
     return listenNodeList(target, type, callback)
-  } else if (is.string(target)) {
+  } else if (isString(target)) {
     const dom = document.querySelector(target)
 
     if (dom) {
@@ -80,5 +80,4 @@ function listenNodeList(nodeList, type, callback) {
   }
 }
 
-export { listen, throttle, debounce }
-export default { listen }
+export { listen as default, throttle, debounce }

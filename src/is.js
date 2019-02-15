@@ -1,10 +1,21 @@
 /**
+ * Check if argument is an Object.
+ *
+ * @param {Object} value
+ * @return {Boolean}
+ */
+const isObject = function(value) {
+  const type = Object.prototype.toString.call(value)
+  return type === "[object Object]"
+}
+
+/**
  * Check if argument is a HTML element.
  *
  * @param {Object} value
  * @return {Boolean}
  */
-export const node = function(value) {
+const isNode = function(value) {
   return (
     value !== undefined && value instanceof HTMLElement && value.nodeType === 1
   )
@@ -16,8 +27,8 @@ export const node = function(value) {
  * @param {Object} value
  * @return {Boolean}
  */
-export const nodeList = function(value) {
-  var type = Object.prototype.toString.call(value)
+const isNodeList = function(value) {
+  const type = Object.prototype.toString.call(value)
 
   return (
     value !== undefined &&
@@ -33,7 +44,7 @@ export const nodeList = function(value) {
  * @param {Object} value
  * @return {Boolean}
  */
-export const svg = function(value) {
+const isSvg = function(value) {
   return value !== undefined && value instanceof SVGElement
 }
 
@@ -43,7 +54,7 @@ export const svg = function(value) {
  * @param {Object} value
  * @return {Boolean}
  */
-export const string = function(value) {
+const isString = function(value) {
   return typeof value === "string" || value instanceof String
 }
 
@@ -53,8 +64,10 @@ export const string = function(value) {
  * @param {Object} value
  * @return {Boolean}
  */
-export const fn = function(value) {
+const isFn = function(value) {
   var type = Object.prototype.toString.call(value)
 
   return type === "[object Function]"
 }
+
+export { isFn, isNode, isNodeList, isObject, isString, isSvg }

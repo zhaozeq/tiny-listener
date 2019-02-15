@@ -27,7 +27,7 @@ var listen = require("tiny-listen")
 ###### 新增 ++ (throttle, debounce)函数
 
 ```js
-import { listen, throttle, debounce } from "tiny-listen"
+import listen, { throttle, debounce } from "tiny-listen"
 
 const listener = listen(this.scroller, "mousewheel", throttle(this.scroll, 300))
 ```
