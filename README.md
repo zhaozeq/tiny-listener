@@ -83,11 +83,3 @@ var listener = listen(".btn", "click", function(e) {
 
 listener.destroy()
 ```
-
-## Browser Support
-
-| ![Chrome logo](https://www.sunjiaying.com/images/chrome_icon.png) | ![Edge logo](https://www.sunjiaying.com/images/edge_icon.png) | ![Firefox logo](https://www.sunjiaying.com/images/firefox_icon.png) | ![Internet Explorer logo](https://www.sunjiaying.com/images/ie_icon.png) | ![Opera logo](https://www.sunjiaying.com/images/opera_icon.png) | ![Safari logo](https://www.sunjiaying.com/images/safari_icon.png) |
-| :---------------------------------------------------------------: | :-----------------------------------------------------------: | :-----------------------------------------------------------------: | :----------------------------------------------------------------------: | :-------------------------------------------------------------: | :---------------------------------------------------------------: |
-|                             Latest ✔                              |                           Latest ✔                            |                              Latest ✔                               |                                   9+ ✔                                   |                            Latest ✔                             |                             Latest ✔                              |
-
-## License
