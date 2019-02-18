@@ -21,7 +21,7 @@ var listen = require("tiny-listen")
 ###### Browser (Standalone)
 
 ```html
-<script src="dist/tiny-listen.js"></script>
+<script src="dist/tiny-listen.js </script>
 ```
 
 ###### 新增 ++ (throttle, debounce)函数
@@ -86,8 +86,8 @@ listener.destroy()
 
 ## Browser Support
 
-| <img src="https://www.sunjiaying.com/images/chrome_icon.png" width="48px" height="48px" alt="Chrome logo"> | <img src="https://www.sunjiaying.com/images/edge_icon.png" width="48px" height="48px" alt="Edge logo"> | <img src="https://www.sunjiaying.com/images/firefox_icon.png" width="48px" height="48px" alt="Firefox logo"> | <img src="https://www.sunjiaying.com/images/ie_icon.png" width="48px" height="48px" alt="Internet Explorer logo"> | <img src="https://www.sunjiaying.com/images/opera_icon.png" width="48px" height="48px" alt="Opera logo"> | <img src="https://www.sunjiaying.com/images/safari_icon.png" width="48px" height="48px" alt="Safari logo"> |
-| :--------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------: |
-|                                                  Latest ✔                                                  |                                                Latest ✔                                                |                                                   Latest ✔                                                   |                                                       9+ ✔                                                        |                                                 Latest ✔                                                 |                                                  Latest ✔                                                  |
+| ![Chrome logo](https://www.sunjiaying.com/images/chrome_icon.png) | ![Edge logo](https://clipboardjs.com/assets/images/edge_icon.png) | ![Firefox logo](https://clipboardjs.com/assets/images/firefox.png) | ![Internet Explorer logo](https://clipboardjs.com/assets/images/ie.png) | ![Opera logo](https://clipboardjs.com/assets/images/opera.png) | ![Safari logo](https://clipboardjs.com/assets/images/safari.png) |
+| :---------------------------------------------------------------: | :---------------------------------------------------------------: | :----------------------------------------------------------------: | :---------------------------------------------------------------------: | :------------------------------------------------------------: | :--------------------------------------------------------------: |
+|                             Latest ✔                              |                             Latest ✔                              |                              Latest ✔                              |                                  9+ ✔                                   |                            Latest ✔                            |                             Latest ✔                             |
 
 ## License
