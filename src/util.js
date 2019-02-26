@@ -1,4 +1,4 @@
-import { isObject, isFn } from "./is"
+import { isObject, isFn } from "log-tips"
 
 /**
  * 截流函数

@@ -1,4 +1,4 @@
-import { isNode, isNodeList, isFn, isString } from "./is"
+import { isNode, isNodeList, isFn, isString } from "log-tips"
 import { throttle, debounce } from "./util"
 
 /**
