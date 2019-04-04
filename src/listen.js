@@ -1,5 +1,5 @@
-import { isNode, isNodeList, isFn, isString } from "log-tips"
-import { throttle, debounce } from "./util"
+import { isNode, isNodeList, isFn, isString } from 'log-tips'
+import { throttle, debounce, addEvent, removeEvent } from './util'
 
 /**
  * 对节点添加监听事件
@@ -12,15 +12,15 @@ import { throttle, debounce } from "./util"
 
 function listen(target, type, callback) {
   if (!target && !type && !callback) {
-    throw new Error("Missing required arguments")
+    throw new Error('Missing required arguments')
   }
 
   if (!isString(type)) {
-    throw new TypeError("Second argument must be a String")
+    throw new TypeError('Second argument must be a String')
   }
 
   if (!isFn(callback)) {
-    throw new TypeError("Third argument must be a Function")
+    throw new TypeError('Third argument must be a Function')
   }
 
   if (isNode(target)) {
@@ -34,27 +34,27 @@ function listen(target, type, callback) {
       return listenNode(dom, type, callback)
     }
 
-    throw new Error("Can not find a dom named" + target)
+    throw new Error('Can not find a dom named' + target)
   } else {
     throw new TypeError(
-      "First argument must be a String, HTMLElement, HTMLCollection, or NodeList"
+      'First argument must be a String, HTMLElement, HTMLCollection, or NodeList'
     )
   }
 }
 /**
  * 处理dom节点
  *
- * @param {HTMLElement} node
- * @param {String} type
- * @param {Function} callback
+ * @param {HTMLElement} el
+ * @param {String} event
+ * @param {Function} handler
  * @return {Object}
  */
 
-function listenNode(node, type, callback) {
-  node.addEventListener(type, callback)
+function listenNode(el, event, handler) {
+  addEvent(el, event, handler)
   return {
     destroy: function() {
-      node.removeEventListener(type, callback)
+      removeEvent(el, event, handler)
     }
   }
 }
@@ -67,14 +67,14 @@ function listenNode(node, type, callback) {
  * @return {Object}
  */
 
-function listenNodeList(nodeList, type, callback) {
-  Array.prototype.forEach.call(nodeList, function(node) {
-    node.addEventListener(type, callback)
+function listenNodeList(nodeList, event, handler) {
+  Array.prototype.forEach.call(nodeList, function(el) {
+    addEvent(el, event, handler)
   })
   return {
     destroy: function() {
-      Array.prototype.forEach.call(nodeList, function(node) {
-        node.removeEventListener(type, callback)
+      Array.prototype.forEach.call(nodeList, function(el) {
+        removeEvent(el, event, handler)
       })
     }
   }

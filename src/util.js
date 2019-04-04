@@ -1,4 +1,4 @@
-import { isObject, isFn } from "log-tips"
+import { isObject, isFn } from 'log-tips'
 
 /**
  * 截流函数
@@ -13,8 +13,8 @@ function throttle(func, wait = 250, options) {
   let trailing = true
 
   if (isObject(options)) {
-    leading = "leading" in options ? !!options.leading : leading
-    trailing = "trailing" in options ? !!options.trailing : trailing
+    leading = 'leading' in options ? !!options.leading : leading
+    trailing = 'trailing' in options ? !!options.trailing : trailing
   }
   return debounce(func, wait, {
     leading,
@@ -46,23 +46,23 @@ function debounce(func, wait, options) {
     maxing = false,
     trailing = true
 
-  const isBrowser = typeof window == "object" && window !== null
+  const isBrowser = typeof window == 'object' && window !== null
   // Bypass `requestAnimationFrame` by explicitly setting `wait=0`.
   const useRAF =
     !wait &&
     wait !== 0 &&
     isBrowser &&
-    typeof window.requestAnimationFrame === "function"
+    typeof window.requestAnimationFrame === 'function'
 
   if (!isFn(func)) {
-    throw new TypeError("Expected a function")
+    throw new TypeError('Expected a function')
   }
   wait = +wait || 0
   if (isObject(options)) {
     leading = !!options.leading
-    maxing = "maxWait" in options
+    maxing = 'maxWait' in options
     maxWait = maxing ? Math.max(+options.maxWait || 0, wait) : maxWait
-    trailing = "trailing" in options ? !!options.trailing : trailing
+    trailing = 'trailing' in options ? !!options.trailing : trailing
   }
   function invokeFunc(time) {
     // 执行func
@@ -184,4 +184,30 @@ function debounce(func, wait, options) {
   return debounced
 }
 
-export { throttle, debounce }
+function addEvent(el, event, handler) {
+  if (!el) {
+    return
+  }
+  if (el.attachEvent) {
+    el.attachEvent(`on${event}`, handler)
+  } else if (el.addEventListener) {
+    el.addEventListener(event, handler, true)
+  } else {
+    el[`on${event}`] = handler
+  }
+}
+
+function removeEvent(el, event, handler) {
+  if (!el) {
+    return
+  }
+  if (el.detachEvent) {
+    el.detachEvent(`on${event}`, handler)
+  } else if (el.removeEventListener) {
+    el.removeEventListener(event, handler, true)
+  } else {
+    el[`on${event}`] = null
+  }
+}
+
+export { throttle, debounce, addEvent, removeEvent }
